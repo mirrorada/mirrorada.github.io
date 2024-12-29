@@ -1,0 +1,831 @@
+/* Temel stiller */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #fff;
+    background-color: #1a1a1a;
+    text-align: center;
+}
+
+/* Header bilgisi */
+.header-info {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Navbar ve Dropdown Menü */
+.navbar {
+    background-color: #FFB347;
+    padding: 1rem;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    padding: 1rem;
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFDAB9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-item:hover .dropdown-content {
+    display: block;
+}
+
+.nav-item:hover .nav-link {
+    background-color: #FFA07A;
+}
+
+.dropdown-content a:hover {
+    background-color: #FFE4C4;
+}
+
+/* Ana içerik */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+section {
+    position: relative;
+    margin: 40px 0;
+    padding: 2rem;
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+section:hover {
+    box-shadow: 
+        0 0 10px rgba(255, 179, 71, 0.4),
+        0 0 20px rgba(255, 179, 71, 0.2);
+}
+
+/* Başlık altı çizgileri */
+#brief h2,
+#personal h2,
+#cv h2 {
+    border-bottom: 3px solid #FFB347;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+    width: 100%;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1.5rem;
+    color: #fff;
+    text-align: center;
+}
+
+/* Kişisel bilgiler bölümü */
+.personal-info {
+    margin-left: 2rem;
+    text-align: left;
+    width: 100%;
+    max-width: 600px;
+}
+
+.personal-info p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    text-align: left;
+    padding-left: 1rem;
+}
+
+.personal-info strong {
+    display: inline-block;
+    width: 120px;
+    margin-right: 1rem;
+}
+
+/* CV içerik stilleri */
+.cv-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.cv-section {
+    background-color: #2d2d2d;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    z-index: 1;
+}
+
+.cv-section h3 {
+    color: #fff;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #FFB347;
+    padding-bottom: 0.5rem;
+    text-align: left;
+}
+
+.cv-section p {
+    margin-bottom: 0.5rem;
+}
+
+/* Brief section */
+#brief {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#brief p {
+    line-height: 2;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+    width: 90%;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#brief h2 {
+    margin-bottom: 2rem;
+    width: 90%;
+    text-align: center;
+}
+
+/* Hobbies section */
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    justify-items: start;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.hobby-card {
+    padding: 1rem;
+    background-color: #3d3d3d;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    width: 100%;
+    z-index: 1;
+}
+
+.hobby-card:hover {
+    transform: translateY(-5px);
+}
+
+/* İletişim formu */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#contact-form input,
+#contact-form textarea {
+    padding: 0.5rem;
+    background-color: rgb(61, 61, 61);
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 4px;
+    text-align: left;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+    color: #aaa;
+}
+
+#contact-form textarea {
+    min-height: 150px;
+}
+
+#contact-form button {
+    padding: 0.5rem 1rem;
+    background-color: #FFB347;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 200px;
+    margin: 0 auto;
+}
+
+#contact-form button:hover {
+    background-color: #FFA07A;
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .dropdown-content {
+        position: static;
+        background-color: #FFDAB9;
+    }
+    
+    .dropdown-content a {
+        color: #333;
+    }
+    
+    .header-info {
+        position: relative;
+        text-align: right;
+        margin-bottom: 20px;
+    }
+
+    section {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+    }
+
+    .personal-info {
+        margin-left: 0;
+        padding: 0 1rem;
+    }
+
+    .personal-info strong {
+        width: 100px;
+    }
+
+    .cv-section {
+        padding: 1rem;
+    }
+}
+
+/* Ek hover efektleri */
+section:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    transition: box-shadow 0.3s ease;
+}
+
+.cv-section:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Strong tag rengi */
+strong {
+    color: #FFB347;
+}
+
+/* Link renkleri */
+a {
+    color: #FFB347;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FFA07A;
+}
+
+/* Yıldız efekti için keyframes */
+@keyframes starGlow {
+    0% {
+        box-shadow: 0 0 5px #FFE5B4,
+                    0 0 10px #FFE5B4,
+                    0 0 15px #FFE5B4;
+    }
+    50% {
+        box-shadow: 0 0 10px #FFE5B4,
+                    0 0 20px #FFE5B4,
+                    0 0 30px #FFE5B4;
+    }
+    100% {
+        box-shadow: 0 0 5px #FFE5B4,
+                    0 0 10px #FFE5B4,
+                    0 0 15px #FFE5B4;
+    }
+}
+
+/* Yıldız şekilleri */
+section::before,
+section::after {
+    content: '★';
+    position: absolute;
+    color: #FFE5B4;
+    opacity: 0.6;
+    font-size: 24px;
+    animation: starTwinkle 1.5s ease-in-out infinite;
+}
+
+section::before {
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+section::after {
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Yıldız yanıp sönme animasyonu */
+@keyframes starTwinkle {
+    0%, 100% {
+        opacity: 0.6;
+        transform: translateY(-50%) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.2);
+    }
+}
+
+/* Hover durumunda efekti güçlendirme */
+section:hover {
+    animation: starGlow 1s ease-in-out infinite;
+}
+
+section:hover::before,
+section:hover::after {
+    animation: starTwinkle 0.8s ease-in-out infinite;
+}
+
+/* Patlama efekti için keyframes */
+@keyframes explode {
+    0% {
+        transform: translate(-50%, -50%) scale(0.1);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes rays {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+/* Efekt container */
+.effect-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Patlama efekti */
+.effect-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, 
+        rgba(255, 179, 71, 0.8) 0%,
+        rgba(255, 179, 71, 0.3) 30%,
+        rgba(255, 179, 71, 0) 70%
+    );
+    transform: translate(-50%, -50%);
+    animation: explode 3s ease-out infinite;
+}
+
+/* Işın efekti */
+.effect-container::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(255, 179, 71, 0.2) 10deg,
+        transparent 20deg
+    );
+    animation: rays 4s linear infinite;
+}
+
+/* Neon çerçeve efekti */
+section {
+    border: 1px solid rgba(255, 179, 71, 0.3);
+    box-shadow: 
+        0 0 5px rgba(255, 179, 71, 0.5),
+        0 0 10px rgba(255, 179, 71, 0.3),
+        0 0 15px rgba(255, 179, 71, 0.2),
+        inset 0 0 5px rgba(255, 179, 71, 0.2);
+}
+
+/* Hover efekti */
+section:hover {
+    box-shadow: 
+        0 0 10px rgba(255, 179, 71, 0.4),
+        0 0 20px rgba(255, 179, 71, 0.2);
+    transition: box-shadow 1.2s ease;
+}
+
+/* Yıldızlı arka plan için container */
+body::before, body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    width: 15%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background-color: #1a1a1a;
+}
+
+body::before {
+    left: 0;
+}
+
+body::after {
+    right: 0;
+}
+
+/* Yıldız stilleri */
+.star {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: gold;
+    pointer-events: none;
+    border-radius: 50%;
+    animation: star-animation 1s linear;
+}
+
+@keyframes star-animation {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(20);
+        opacity: 0;
+    }
+}
+
+/* Dolu yıldız */
+.star.filled {
+    background: rgba(255, 179, 71, 0.6);
+    box-shadow: 
+        0 0 3px rgba(255, 179, 71, 0.3),
+        0 0 6px rgba(255, 179, 71, 0.2);
+}
+
+/* Çerçeve yıldız */
+.star.outlined {
+    border: 1px solid rgba(255, 179, 71, 0.6);
+    box-shadow: 
+        0 0 3px rgba(255, 179, 71, 0.2),
+        0 0 6px rgba(255, 179, 71, 0.1);
+    background: transparent;
+}
+
+/* Farklı yıldız boyutları */
+.star.small {
+    width: 2px;
+    height: 2px;
+}
+
+.star.medium {
+    width: 4px;
+    height: 4px;
+}
+
+.star.large {
+    width: 6px;
+    height: 6px;
+}
+
+/* Yıldız parıltı animasyonu */
+@keyframes starGlow {
+    0% {
+        opacity: 0.7;
+        filter: brightness(0.9);
+    }
+    100% {
+        opacity: 1;
+        filter: brightness(1.1);
+    }
+}
+
+/* Yıldız container */
+.star-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Ana içeriği ortala ve kenar boşluklarını ayarla */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 70%; /* Ana içerik genişliği */
+}
+
+/* Navigation styles */
+nav {
+    background-color: #FFB347;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* İsim ve numara stilleri */
+.name-number {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.name {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.number {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+/* Ana menü container'ı */
+.menu-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Mevcut menü stilleri */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: #1a1a1a;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: color 1.2s ease;
+    font-weight: 500;
+}
+
+nav ul li a:hover {
+    color: white;
+}
+
+/* Dropdown stilleri */
+nav ul ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #FFB347;
+    min-width: 200px;
+    display: none;
+}
+
+nav ul li:hover > ul {
+    display: none;
+}
+
+nav ul ul li {
+    width: 100%;
+}
+
+nav ul ul li a {
+    padding: 1rem;
+}
+
+/* Kişisel bilgiler section'ı için özel stiller */
+#personal {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 sütunlu grid */
+    gap: 2rem; /* Grid öğeleri arası boşluk */
+    align-items: start;
+}
+
+#personal h2 {
+    grid-column: 1 / -1; /* Başlık tüm genişliği kaplasın */
+    margin-bottom: 2rem;
+}
+
+#personal p {
+    margin: 1rem 0;
+    line-height: 1.6;
+}
+
+/* Bilgi grupları için stil */
+.info-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #FFB347;
+    margin-right: 0.5rem;
+}
+
+.info-content {
+    text-align: right;
+}
+
+.section-title {
+    border-bottom: 3px solid orange;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Section pozisyonlama */
+section {
+    position: relative;
+    overflow: visible;
+    margin: 40px 0;
+    padding: 2rem;
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Efekt container */
+.effect-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Sabit yıldızlar için stil */
+.fixed-star {
+    position: fixed;
+    color: #FFE5B4;
+    opacity: 0.6;
+    font-size: 24px;
+    animation: fixedStarTwinkle 2s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes fixedStarTwinkle {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.skill-levels {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.skill-level {
+    flex: 1;
+}
+
+.skill-level h4 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #FFE5B4;
+    display: inline-block;
+}
+
+.skill-logos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.skill-item:hover {
+    transform: translateX(10px);
+}
+
+.skill-item img {
+    width: 40px;
+    height: 40px;
+}
+
+.skill-item span {
+    color: white;
+    font-size: 1rem;
+}
+
+.progress-bar {
+    background-color: rgba(255, 179, 71, 0.2);
+    height: 10px;
+    border-radius: 5px;
+    width: 113px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress {
+    background-color: #FFB347;
+    height: 100%;
+    border-radius: 5px;
+    transition: width 1s ease;
+}
